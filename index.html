@@ -150,6 +150,7 @@
         .social-table {
             width: 100%;
             border-spacing: 8px;
+            margin-bottom: 15px;
         }
 
         .social-table td {
@@ -179,6 +180,24 @@
             display: block;
         }
 
+        /* Стили для счётчика */
+        .counter-container {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--social-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .counter-container img {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .counter-container img:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -234,6 +253,12 @@
             </td>
         </tr>
     </table>
+
+    <!-- Счётчик посещений -->
+    <div class="counter-container">
+        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Felektrik-rnd.github.io%2F&label=&icon=lightning-fill&color=%23d2f4ea&message=&style=plastic&tz=Europe%2FMoscow"
+             alt="Счётчик посещений">
+    </div>
 
 </div>
 
