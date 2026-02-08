@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Электромонтажные работы</title>
+    <meta name="description" content="Электромонтажные работы любой сложности. Умный дом, видеонаблюдение, интернет.">
+    <title>Монтаж_RnD - Электромонтажные работы</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bitcoin_lightning_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bitcoin_lightning_logo.png">
@@ -22,6 +23,11 @@
             --radius-lg: 15px;
             --radius-md: 10px;
             --spacing: 20px;
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -35,8 +41,15 @@
             }
         }
 
+        html {
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         * {
             box-sizing: border-box;
+            margin: 0;
         }
 
         body {
@@ -48,6 +61,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            line-height: 1.5;
         }
 
         main {
@@ -60,51 +74,74 @@
             max-width: 400px;
             width: 100%;
             background: var(--card-bg);
-            padding: var(--spacing);
+            padding: var(--spacing-lg);
             border-radius: var(--radius-lg);
             text-align: center;
             box-shadow: var(--shadow);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .avatar {
             width: 96px;
             height: 96px;
             border-radius: 50%;
-            margin-bottom: 12px;
+            margin-bottom: var(--spacing-sm);
             border: 3px solid var(--social-bg);
             object-fit: cover;
+            background: linear-gradient(90deg, var(--social-bg) 25%, color-mix(in srgb, var(--social-bg) 80%, transparent) 50%, var(--social-bg) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
         h1 {
-            margin: 8px 0 4px;
+            margin: var(--spacing-xs) 0 var(--spacing-sm);
             font-size: 22px;
             color: var(--text-color);
-        }
-
-        .role {
-            margin: 0 0 8px;
-            font-size: 14px;
-            color: var(--text-light);
+            font-weight: 700;
         }
 
         .phone-block {
-            margin: 12px 0 18px;
+            margin: var(--spacing-sm) 0 var(--spacing);
         }
 
         .phone-link {
             color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
         }
 
         .phone-link:hover,
         .phone-link:focus-visible {
             text-decoration: underline;
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+            background-color: rgba(76, 175, 80, 0.1);
         }
 
         .call-button {
             display: block;
-            margin: 0 0 20px;
+            margin: 0 0 var(--spacing-lg);
             padding: 14px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #ffffff;
@@ -115,10 +152,24 @@
             position: relative;
             overflow: hidden;
             border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .call-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
         .call-button:active {
-            opacity: 0.95;
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+        }
+
+        .call-button:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 6px rgba(76, 175, 80, 0.2);
         }
 
         .call-button::before {
@@ -153,34 +204,47 @@
 
         .info {
             color: var(--text-color);
-            line-height: 1.5;
-            margin: 18px 0;
-            font-size: 14px;
+            line-height: 1.6;
+            margin: var(--spacing-lg) 0;
+            font-size: 15px;
         }
 
         .info p {
-            margin: 6px 0;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .info strong {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .social-title {
-            margin: 20px 0 10px;
+            margin: var(--spacing-lg) 0 var(--spacing-sm);
             color: var(--text-light);
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 500;
         }
 
         .social-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-            margin-bottom: 18px;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing);
         }
 
         .social-item {
             background: var(--social-bg);
             border-radius: var(--radius-md);
-            padding: 10px 6px;
+            padding: var(--spacing-sm) var(--spacing-xs);
             text-align: center;
-            transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+            transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .social-item:hover,
+        .social-item:focus-within {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background-color: color-mix(in srgb, var(--social-bg) 90%, var(--primary));
         }
 
         .social-link {
@@ -190,35 +254,36 @@
             justify-content: center;
             text-decoration: none;
             color: var(--text-color);
+            min-height: 64px;
         }
 
         .social-icon {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             margin-bottom: 6px;
             display: block;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .social-item:hover .social-icon {
+            transform: scale(1.1);
         }
 
         .social-label {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
-        }
-
-        .social-item:hover,
-        .social-item:focus-within {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
 
         .social-link:focus-visible {
             outline: 2px solid var(--primary);
-            outline-offset: 2px;
+            outline-offset: 4px;
             border-radius: var(--radius-md);
         }
 
         .counter-container {
-            margin-top: 18px;
-            padding-top: 14px;
+            margin-top: var(--spacing);
+            padding-top: var(--spacing);
             border-top: 1px solid var(--social-bg);
             display: flex;
             justify-content: center;
@@ -227,16 +292,21 @@
 
         .counter-container img {
             opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .counter-container img:hover {
             opacity: 1;
+            transform: scale(1.05);
         }
 
         @media (max-width: 360px) {
+            body {
+                padding: var(--spacing-sm);
+            }
+
             .card {
-                padding: 14px;
+                padding: var(--spacing);
             }
 
             h1 {
@@ -249,30 +319,73 @@
             }
 
             .avatar {
-                width: 80px;
-                height: 80px;
+                width: 84px;
+                height: 84px;
+            }
+
+            .social-grid {
+                gap: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .call-button::before,
+            .avatar,
+            .social-item,
+            .social-icon,
+            .counter-container img,
+            .card {
+                animation: none;
+                transition: none;
+            }
+            
+            .call-button:hover,
+            .call-button:active,
+            .social-item:hover,
+            .social-item:focus-within {
+                transform: none;
             }
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Монтаж_RnD",
+        "telephone": "+79185756519",
+        "url": "https://elektrik-rnd.github.io/",
+        "description": "Электромонтажные работы любой сложности. Умный дом, видеонаблюдение, интернет.",
+        "serviceType": ["Электромонтажные работы", "Умный дом", "Видеонаблюдение"],
+        "areaServed": {
+            "@type": "City",
+            "name": "Усть-Лабинск и район"
+        }
+    }
+    </script>
 </head>
 <body>
 <main>
-    <section class="card" aria-label="Контактная карточка">
+    <section class="card" role="region" aria-labelledby="card-title">
         <img
             class="avatar"
             src="https://i.pinimg.com/736x/85/da/b8/85dab8224f43c1efbb9394cad482d8cd.jpg"
-            alt="ЭлектрокотЭ"
+            alt="Аватар профиля Монтаж_RnD - специалист по электромонтажным работам"
+            loading="lazy"
+            width="96"
+            height="96"
         >
 
-        <h1>Монтаж_RnD</h1>
-        <p class="role"> • </p>
+        <h1 id="card-title">Монтаж_RnD</h1>
 
         <div class="phone-block">
-            <a class="phone-link" href="tel:+79185756519">+7&nbsp;918&nbsp;575‑65‑19</a>
+            <a class="phone-link" href="tel:+79185756519" aria-label="Позвонить по номеру +7 918 575-65-19">
+                +7&nbsp;918&nbsp;575‑65‑19
+            </a>
         </div>
 
-        <a href="tel:+79185756519" class="call-button">
-            Позвонить
+        <a href="tel:+79185756519" class="call-button" aria-label="Позвонить по номеру +7 918 575-65-19">
+            📞 Позвонить сейчас
         </a>
 
         <div class="info">
@@ -284,66 +397,82 @@
 
         <div class="social-title">Связаться удобным способом</div>
 
-        <div class="social-grid" aria-label="Контакты в мессенджерах">
-            <div class="social-item">
+        <div class="social-grid" role="list" aria-label="Способы связи в мессенджерах и социальных сетях">
+            <div class="social-item" role="listitem">
                 <a
                     class="social-link"
                     href="https://t.me/+79185756519"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Написать в Telegram"
                 >
                     <img
                         class="social-icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg"
-                        alt="Telegram"
+                        alt=""
+                        width="30"
+                        height="30"
+                        loading="lazy"
                     >
                     <span class="social-label">Telegram</span>
                 </a>
             </div>
 
-            <div class="social-item">
+            <div class="social-item" role="listitem">
                 <a
                     class="social-link"
                     href="https://wa.me/79185756519"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Написать в WhatsApp"
                 >
                     <img
                         class="social-icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/60px-WhatsApp_logo-color-vertical.svg.png"
-                        alt="WhatsApp"
+                        alt=""
+                        width="30"
+                        height="30"
+                        loading="lazy"
                     >
                     <span class="social-label">WhatsApp</span>
                 </a>
             </div>
 
-            <div class="social-item">
+            <div class="social-item" role="listitem">
                 <a
                     class="social-link"
                     href="https://instagram.com/elektrik_uga/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Профиль в Instagram"
                 >
                     <img
                         class="social-icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png"
-                        alt="Instagram"
+                        alt=""
+                        width="30"
+                        height="30"
+                        loading="lazy"
                     >
                     <span class="social-label">Instagram</span>
                 </a>
             </div>
 
-            <div class="social-item">
+            <div class="social-item" role="listitem">
                 <a
                     class="social-link"
                     href="https://max.ru/u/f9LHodD0cOKBmmqkeevlRKfWIjVRWSQg0ps7AN1VcRVVnGlaGE-NTN6EaLI"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Профиль в Max"
                 >
                     <img
                         class="social-icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg"
-                        alt="Max"
+                        alt=""
+                        width="30"
+                        height="30"
+                        loading="lazy"
                     >
                     <span class="social-label">Max</span>
                 </a>
@@ -353,7 +482,10 @@
         <div class="counter-container">
             <img
                 src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Felektrik-rnd.github.io%2F&label=&icon=lightning-fill&color=%23d2f4ea&message=&style=plastic&tz=Europe%2FMoscow"
-                alt="Hits counter"
+                alt="Счётчик посещений сайта"
+                loading="lazy"
+                width="80"
+                height="20"
             >
         </div>
     </section>
