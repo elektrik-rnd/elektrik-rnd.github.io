@@ -115,7 +115,6 @@
             position: relative;
             overflow: hidden;
             border: none;
-            width: 100%; /* Ensure buttons span full width on mobile */
         }
 
         .call-button:active {
@@ -182,19 +181,13 @@
             padding: 10px 6px;
             text-align: center;
             transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .social-item:hover,
-        .social-item:focus-within {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
 
         .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
             color: var(--text-color);
         }
@@ -203,11 +196,24 @@
             width: 28px;
             height: 28px;
             margin-bottom: 6px;
+            display: block;
         }
 
         .social-label {
             font-size: 13px;
             font-weight: 500;
+        }
+
+        .social-item:hover,
+        .social-item:focus-within {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .social-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: var(--radius-md);
         }
 
         .counter-container {
@@ -314,7 +320,6 @@
             <div class="social-item">
                 <a
                     class="social-link"
-                    id="instagram-link"
                     href="https://instagram.com/elektrik_uga/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -353,14 +358,5 @@
         </div>
     </section>
 </main>
-
-<script>
-    // Проверка на мобильные устройства
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Если мобильное устройство, устанавливаем ссылку на приложение Instagram
-        document.getElementById('instagram-link').href = 'instagram://user?username=elektrik_uga';
-    }
-</script>
-
 </body>
 </html>
