@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Электромонтажные работы</title>
+    <title>Электромонтажные работы — Анатолий</title>
 
-    <!-- Favicon -->
+    <!-- Favicon — ваши исходные пути -->
+
     <link rel="icon" type="image/png" sizes="32x32" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bitcoin_lightning_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bitcoin_lightning_logo.png">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://upload.wikimedia.org/wikipedia/commons/f/f1/Bitcoin_lightning_logo.png">
@@ -13,13 +14,16 @@
     <style>
         :root {
             --bg-color: #f5f5f5;
-            --card-bg: white;
-            --text-color: #222;
-            --text-light: #555;
+            --card-bg: #ffffff;
+            --text-color: #222222;
+            --text-light: #555555;
             --primary: #4CAF50;
             --primary-dark: #388E3C;
-            --social-bg: #f8f8f8;
+            --social-bg: #f0f0f0;
             --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --radius-lg: 15px;
+            --radius-md: 10px;
+            --spacing: 20px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -27,16 +31,20 @@
                 --bg-color: #1a1a1a;
                 --card-bg: #2d2d2d;
                 --text-color: #f0f0f0;
-                --text-light: #bbb;
+                --text-light: #bbbbbb;
                 --social-bg: #3a3a3a;
                 --shadow: 0 2px 10px rgba(0,0,0,0.3);
             }
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
+            padding: var(--spacing);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             background: var(--bg-color);
             display: flex;
             justify-content: center;
@@ -44,63 +52,78 @@
             min-height: 100vh;
         }
 
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         .card {
             max-width: 400px;
             width: 100%;
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 15px;
+            padding: var(--spacing);
+            border-radius: var(--radius-lg);
             text-align: center;
             box-shadow: var(--shadow);
         }
 
         .avatar {
-            width: 80px;
-            height: 80px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border: 3px solid var(--social-bg);
+            object-fit: cover;
         }
 
-        h2 {
-            margin: 5px 0;
+        h1 {
+            margin: 8px 0 4px;
+            font-size: 22px;
             color: var(--text-color);
         }
 
-        .phone {
+        .role {
+            margin: 0 0 8px;
+            font-size: 14px;
             color: var(--text-light);
-            margin: 15px 0;
-            font-size: 16px;
         }
 
-        /* Кнопка с анимацией блика */
-        .call-button-container {
-            display: block;
-            margin: 20px 0;
+        .phone-block {
+            margin: 12px 0 18px;
+        }
+
+        .phone-link {
+            color: var(--text-color);
             text-decoration: none;
-            border-radius: 10px;
-            overflow: hidden;
+            font-weight: 600;
         }
 
+        .phone-link:hover,
+        .phone-link:focus-visible {
+            text-decoration: underline;
+        }
+
+        /* Кнопка звонка как ссылка */
         .call-button {
-            position: relative;
-            width: 100%;
-            padding: 16px;
+            display: block;
+            margin: 0 0 20px;
+            padding: 14px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            border-radius: 10px;
+            color: #ffffff;
+            border-radius: var(--radius-md);
             font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
             overflow: hidden;
+            border: none;
         }
 
         .call-button:active {
             opacity: 0.95;
         }
 
-        /* Анимация блика */
         .call-button::before {
             content: "";
             position: absolute;
@@ -134,56 +157,73 @@
         .info {
             color: var(--text-color);
             line-height: 1.5;
-            margin: 20px 0;
+            margin: 18px 0;
+            font-size: 14px;
         }
 
         .info p {
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
         .social-title {
-            margin: 25px 0 15px 0;
+            margin: 20px 0 10px;
             color: var(--text-light);
+            font-size: 14px;
         }
 
-        /* ПРОСТАЯ ТАБЛИЦА 2x2 */
-        .social-table {
-            width: 100%;
-            border-spacing: 8px;
-            margin-bottom: 15px;
+        /* Сетка соцсетей вместо таблицы */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
         }
 
-        .social-table td {
+        .social-item {
             background: var(--social-bg);
-            border-radius: 10px;
-            padding: 12px 5px;
+            border-radius: var(--radius-md);
+            padding: 10px 6px;
             text-align: center;
+            transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
         }
 
-        .social-table a {
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
             color: var(--text-color);
-            display: block;
         }
 
-        .social-table img {
+        .social-icon {
             width: 28px;
             height: 28px;
-            margin-bottom: 5px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .social-table span {
-            font-size: 12px;
+            margin-bottom: 6px;
             display: block;
         }
 
-        /* Стили для счётчика */
+        .social-label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .social-item:hover,
+        .social-item:focus-within {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .social-link:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: var(--radius-md);
+        }
+
+        /* Счётчик посещений */
         .counter-container {
-            margin-top: 20px;
-            padding-top: 15px;
+            margin-top: 18px;
+            padding-top: 14px;
             border-top: 1px solid var(--social-bg);
             display: flex;
             justify-content: center;
@@ -198,69 +238,131 @@
         .counter-container img:hover {
             opacity: 1;
         }
+
+        /* Адаптивность */
+        @media (max-width: 360px) {
+            .card {
+                padding: 14px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .call-button {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
+        }
     </style>
 </head>
 <body>
+<main>
+    <section class="card" aria-label="Контактная карточка электрика">
+        <img
+            class="avatar"
+            src="https://i.pinimg.com/736x/85/da/b8/85dab8224f43c1efbb9394cad482d8cd.jpg"
+            alt="Электрик Анатолий"
+        >
 
-<div class="card">
-    <img class="avatar" src="https://i.pinimg.com/736x/85/da/b8/85dab8224f43c1efbb9394cad482d8cd.jpg" alt="Аватар">
+        <h1>Анатолий</h1>
+        <p class="role">Электрик • электромонтажные работы</p>
 
-    <h2>Анатолий</h2>
+        <div class="phone-block">
+            <a class="phone-link" href="tel:+79185756519">+7&nbsp;918&nbsp;575‑65‑19</a>
+        </div>
 
-    <div class="phone">+7 918 575-65-19</div>
+        <a href="tel:+79185756519" class="call-button">
+            Позвонить
+        </a>
 
-    <a href="tel:+79185756519" class="call-button-container">
-        <button class="call-button">Позвонить</button>
-    </a>
+        <div class="info">
+            <p><strong>Электромонтажные работы любой сложности</strong></p>
+            <p>10 лет опыта • квартиры • дома • офисы</p>
+            <p>Умный дом • видеонаблюдение • интернет</p>
+            <p><strong>Безопасно. Быстро. Надёжно.</strong></p>
+        </div>
 
-    <div class="info">
-        <p><strong>Электромонтажные работы любой сложности</strong></p>
-        <p>10 лет опыта • квартиры • дома • офисы</p>
-        <p>Умный дом • видеонаблюдение • интернет</p>
-        <p><strong>Безопасно. Быстро. Надёжно.</strong></p>
-    </div>
+        <div class="social-title">Связаться удобным способом</div>
 
-    <div class="social-title">Связаться удобным способом</div>
+        <div class="social-grid" aria-label="Контакты в мессенджерах">
+            <div class="social-item">
+                <a
+                    class="social-link"
+                    href="https://t.me/+79185756519"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="social-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg"
+                        alt="Telegram"
+                    >
+                    <span class="social-label">Telegram</span>
+                </a>
+            </div>
 
-    <!-- ТАБЛИЦА 2x2 -->
-    <table class="social-table">
-    <tr>
-        <td>
-            <a href="https://t.me/+79185756519" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram">
-                <span>Telegram</span>
-            </a>
-        </td>
-        <td>
-            <a href="https://wa.me/79185756519" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/60px-WhatsApp_logo-color-vertical.svg.png" alt="WhatsApp">
-                <span>WhatsApp</span>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="https://instagram.com/elektrik_uga" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
-                <span>Instagram</span>
-            </a>
-        </td>
-        <td>
-            <a href="https://max.ru/u/f9LHodD0cOKBmmqkeevlRKfWIjVRWSQg0ps7AN1VcRVVnGlaGE-NTN6EaLI" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max">
-                <span>Max</span>
-            </a>
-        </td>
-    </tr>
-</table>
+            <div class="social-item">
+                <a
+                    class="social-link"
+                    href="https://wa.me/79185756519"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="social-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/60px-WhatsApp_logo-color-vertical.svg.png"
+                        alt="WhatsApp"
+                    >
+                    <span class="social-label">WhatsApp</span>
+                </a>
+            </div>
 
-    <!-- Счётчик посещений -->
-    <div class="counter-container">
-        <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Felektrik-rnd.github.io%2F&label=&icon=lightning-fill&color=%23d2f4ea&message=&style=plastic&tz=Europe%2FMoscow"
-             alt="Счётчик посещений">
-    </div>
+            <div class="social-item">
+                <a
+                    class="social-link"
+                    href="https://instagram.com/elektrik_uga"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="social-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png"
+                        alt="Instagram"
+                    >
+                    <span class="social-label">Instagram</span>
+                </a>
+            </div>
 
-</div>
+            <div class="social-item">
+                <a
+                    class="social-link"
+                    href="https://max.ru/u/f9LHodD0cOKBmmqkeevlRKfWIjVRWSQg0ps7AN1VcRVVnGlaGE-NTN6EaLI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="social-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg"
+                        alt="Max"
+                    >
+                    <span class="social-label">Max</span>
+                </a>
+            </div>
+        </div>
 
+        <div class="counter-container">
+            <img
+                src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Felektrik-rnd.github.io%2F&label=&icon=lightning-fill&color=%23d2f4ea&message=&style=plastic&tz=Europe%2FMoscow"
+                alt="Счётчик посещений сайта электрика"
+            >
+        </div>
+    </section>
+</main>
 </body>
 </html>
