@@ -320,10 +320,10 @@
             <div class="social-item">
                 <a
                     class="social-link"
+                    id="instagram-link"
                     href="https://instagram.com/elektrik_uga/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onclick="window.location.href='instagram://user?username=elektrik_uga'; return false;"
                 >
                     <img
                         class="social-icon"
@@ -359,5 +359,14 @@
         </div>
     </section>
 </main>
+
+<script>
+    // Проверка на мобильные устройства
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Если мобильное устройство, устанавливаем ссылку на приложение Instagram
+        document.getElementById('instagram-link').href = 'instagram://user?username=elektrik_uga';
+    }
+</script>
+
 </body>
 </html>
