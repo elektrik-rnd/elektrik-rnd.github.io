@@ -39,51 +39,8 @@
         border-radius: 10px;
         object-fit: cover;
         object-position: center;
-        margin: 0 auto 10px auto;
+        margin: 0 auto 25px auto;
         display: block;
-    }
-
-    .title-glow {
-        position: relative;
-        display: inline-block;
-        margin: 0 0 15px 0;
-        color: #f2f2f2;
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 1px;
-        overflow: hidden;
-    }
-
-    .title-glow::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -40%;
-        width: 40%;
-        height: 100%;
-        background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(254, 187, 10, 0.0) 20%,
-            rgba(254, 187, 10, 0.95) 50%,
-            rgba(254, 187, 10, 0.7) 65%,
-            rgba(254, 187, 10, 0.3) 80%,
-            transparent 100%
-        );
-        transform: skewX(-20deg);
-        opacity: 0;
-        animation: titleShineBackForth 7s ease-in-out infinite;
-        z-index: 2;
-    }
-
-    @keyframes titleShineBackForth {
-        0%, 5% { left: -40%; opacity: 0; }
-        15% { opacity: 0.9; }
-        35% { left: 120%; opacity: 0; }
-        45% { left: 120%; opacity: 0; }
-        55% { opacity: 0.9; }
-        75% { left: -40%; opacity: 0; }
-        100% { left: -40%; opacity: 0; }
     }
 
     @keyframes unifiedGlow {
@@ -104,9 +61,9 @@
         color: #120d0d;
         padding: 18px;
         text-decoration: none;
-        border-radius: 10px;
+        border-radius: 8px;
         font-weight: 600;
-        margin: 10px auto 30px auto;
+        margin: 0 auto 30px auto;
         font-size: 20px;
         width: 80%;
         max-width: 260px;
@@ -196,7 +153,6 @@
 <body>
     <div class="card">
         <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
-        <h2 class="title-glow">VOLTAGE MONTAGE</h2>
         
         <a href="tel:+79185756519" class="call-button glow-element">
             📱 ПОЗВОНИТЬ 📱
