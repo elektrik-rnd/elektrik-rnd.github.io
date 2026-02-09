@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Voltage Montage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Фавиконы ИЗ ЛОГОТИПА logo.jpg -->
     <link rel="icon" type="image/jpeg" sizes="32x32" href="logo.jpg">
     <link rel="icon" type="image/jpeg" sizes="16x16" href="logo.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="logo.jpg">
@@ -32,19 +31,17 @@
         text-align: center;
     }
 
-    /* Логотип */
     .logo-img {
         width: 232px;
         height: 232px;
         border-radius: 10px;
         object-fit: cover;
         object-position: center;
-        margin: 0 auto 5px auto;
+        margin: 0 auto 2.5px auto;
         display: block;
-        clip-path: inset(7.5% round 10px);
+        clip-path: inset(15% round 10px);
     }
 
-    /* Заголовок с БЛИКОМ #febb0a */
     .title-glow {
         position: relative;
         display: inline-block;
@@ -86,7 +83,6 @@
         100% { left: -40%; opacity: 0; }
     }
 
-    /* Кнопка с ЖЁЛТЫМ свечением #febb0a */
     .call-button {
         display: block;
         background: #f2f2f2;
@@ -118,7 +114,6 @@
         box-shadow: 0 0 50px rgba(254, 187, 10, 0.85) !important;
     }
 
-    /* Соцсети с ЖЁЛТЫМ свечением */
     .social-icons {
         margin: 20px 0 30px 0;
         display: flex;
@@ -149,28 +144,20 @@
 
 <body>
     <div class="card">
-        <!-- Логотип -->
         <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
-
-        <!-- Название с БЛИКОМ #febb0a -->
         <h2 class="title-glow">VOLTAGE MONTAGE</h2>
-
-        <!-- Описание -->
-        <p style="margin:8px 0; color:#f2f2f2; font-size:16px;">Электромонтажные работы</p>
-        <p style="margin:8px 0; color:#f2f2f2; font-size:16px;">Электрика • Видеонаблюдение • Интернет</p>
-        <p style="margin:8px 0 25px 0; color:#f2f2f2; font-size:16px;">Умный дом • Безопасно • Качественно</p>
-
-        <!-- Кнопка с ЖЁЛТЫМ свечением -->
+        <p style="margin:8px 0; color:#f2f2f2; font-size:16px;">
+            Электромонтажные работы любой сложности • Видеонаблюдение • Интернет
+        </p>
+        <p style="margin:8px 0 25px 0; color:#f2f2f2; font-size:16px;">
+            Умный дом • Безопасно • Качественно
+        </p>
         <a href="tel:+79185756519" class="call-button">
             📱 ПОЗВОНИТЬ 📱
         </a>
-
-        <!-- Надпись над иконками -->
         <div style="margin:25px 0 20px 0; color:#f2f2f2; font-size:16px;">
             Связаться удобным способом
         </div>
-
-        <!-- Соцсети с ЖЁЛТЫМ свечением -->
         <div class="social-icons">
             <a href="https://t.me/+79185756519" target="_blank" rel="noopener noreferrer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram">
@@ -185,8 +172,6 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max">
             </a>
         </div>
-
-        <!-- Счётчик -->
         <div class="counter-container">
             <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Felektrik-rnd.github.io%2F&label=&icon=lightning-fill&color=%23d2f4ea&message=&style=plastic&tz=Europe%2FMoscow"
                  alt="Счётчик посещений">
@@ -194,7 +179,6 @@
     </div>
 
     <script>
-        // Меняем title после загрузки страницы
         window.addEventListener('load', function() {
             document.title = 'VOLTAGE ↯ MONTAGE';
         });
