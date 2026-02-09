@@ -26,9 +26,21 @@
         max-width: 400px;
         background-color: #050505;
         border-radius: 10px;
-        padding: 25px;
+        padding: 10px 25px 25px 25px;
         box-sizing: border-box;
         text-align: center;
+    }
+
+    /* Логотип — ПОСЕРЕДИНЕ + СИЛЬНЫЙ КРОП */
+    .logo-img {
+        width: 232px;
+        height: 232px;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: center;
+        margin: 0 auto 10px auto;  /* ТОЧНО ПОСЕРЕДИНЕ */
+        display: block;
+        clip-path: inset(7.5% round 10px);  /* ЕЩЁ БОЛЬШЕ КРОПА (85% центра) */
     }
 
     /* Заголовок с бликом туда-обратно */
@@ -135,8 +147,8 @@
 
 <body>
     <div class="card">
-        <!-- Логотип 193×193px -->
-        <img src="logo.jpg" width="193" height="193" alt="Voltage Montage" style="margin-bottom:10px; border-radius:10px;">
+        <!-- Логотип ПОСЕРЕДИНЕ с сильным кропом -->
+        <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
 
         <!-- Название с бликом -->
         <h2 class="title-glow">VOLTAGE MONTAGE</h2>
