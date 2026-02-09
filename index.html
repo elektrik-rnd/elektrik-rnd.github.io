@@ -19,8 +19,8 @@
         font-family: 'Inter', Arial, sans-serif;
         display: flex;
         min-height: 100vh;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center; /* Центрируем по вертикали */
+        justify-content: center; /* Центрируем по горизонтали */
         padding-top: 20px;
     }
 
@@ -133,6 +133,8 @@
         align-items: center;
         width: 100%;
         gap: 35px;
+        flex-wrap: wrap; /* Чтобы иконки не выходили за пределы контейнера */
+        padding: 0;
     }
 
     .social-icons a {
