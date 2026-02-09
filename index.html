@@ -31,7 +31,7 @@
         text-align: center;
     }
 
-    /* Логотип — ПОСЕРЕДИНЕ + СИЛЬНЫЙ КРОП */
+    /* Логотип */
     .logo-img {
         width: 232px;
         height: 232px;
@@ -63,10 +63,10 @@
         background: linear-gradient(
             120deg,
             transparent 0%,
-            rgba(254, 187, 10, 0.0) 20%,     /* #febb0a прозрачный */
-            rgba(254, 187, 10, 0.95) 50%,    /* #febb0a яркий пик */
-            rgba(254, 187, 10, 0.7) 65%,     /* #febb0a переход */
-            rgba(254, 187, 10, 0.3) 80%,     /* #febb0a затухание */
+            rgba(254, 187, 10, 0.0) 20%,
+            rgba(254, 187, 10, 0.95) 50%,
+            rgba(254, 187, 10, 0.7) 65%,
+            rgba(254, 187, 10, 0.3) 80%,
             transparent 100%
         );
         transform: skewX(-20deg);
@@ -85,7 +85,7 @@
         100% { left: -40%; opacity: 0; }
     }
 
-    /* Кнопка с ярким свечением */
+    /* Кнопка с ЖЁЛТЫМ свечением #febb0a */
     .call-button {
         display: block;
         background: #f2f2f2;
@@ -106,18 +106,18 @@
     }
 
     @keyframes buttonGlow {
-        0%, 100% { box-shadow: 0 0 12px rgba(242,242,242,0.2); }
-        25% { box-shadow: 0 0 25px rgba(242,242,242,0.45); }
-        50% { box-shadow: 0 0 40px rgba(242,242,242,0.65); }
-        75% { box-shadow: 0 0 25px rgba(242,242,242,0.45); }
+        0%, 100% { box-shadow: 0 0 12px rgba(254, 187, 10, 0.25); }
+        25% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
+        50% { box-shadow: 0 0 40px rgba(254, 187, 10, 0.7); }
+        75% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
     }
 
     .call-button:hover {
         animation-play-state: paused;
-        box-shadow: 0 0 45px rgba(242,242,242,0.75) !important;
+        box-shadow: 0 0 50px rgba(254, 187, 10, 0.85) !important;
     }
 
-    /* Соцсети */
+    /* Соцсети с ЖЁЛТЫМ свечением */
     .social-icons {
         margin: 20px 0 30px 0;
         display: flex;
@@ -142,7 +142,7 @@
 
     .social-icons img:hover {
         transform: scale(1.05);
-        box-shadow: 0 0 16px rgba(242,242,242,0.35);
+        box-shadow: 0 0 20px rgba(254, 187, 10, 0.6);  /* #febb0a */
     }
 </style>
 
@@ -151,7 +151,7 @@
         <!-- Логотип -->
         <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
 
-        <!-- Название с БЛИКОМ #febb0a ⚡ -->
+        <!-- Название с БЛИКОМ #febb0a -->
         <h2 class="title-glow">VOLTAGE MONTAGE</h2>
 
         <!-- Описание -->
@@ -159,7 +159,7 @@
         <p style="margin:8px 0; color:#f2f2f2; font-size:16px;">Электрика • Видеонаблюдение • Интернет</p>
         <p style="margin:8px 0 25px 0; color:#f2f2f2; font-size:16px;">Умный дом • Безопасно • Качественно</p>
 
-        <!-- Кнопка -->
+        <!-- Кнопка с ЖЁЛТЫМ свечением -->
         <a href="tel:+79185756519" class="call-button">
             📱 ПОЗВОНИТЬ 📱
         </a>
@@ -169,7 +169,7 @@
             Связаться удобным способом
         </div>
 
-        <!-- Соцсети -->
+        <!-- Соцсети с ЖЁЛТЫМ свечением -->
         <div class="social-icons">
             <a href="https://t.me/+79185756519" target="_blank" rel="noopener noreferrer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram">
