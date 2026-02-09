@@ -46,7 +46,7 @@
     .title-glow {
         position: relative;
         display: inline-block;
-        margin: 0 0 20px 0;
+        margin: 0 0 15px 0;
         color: #f2f2f2;
         font-size: 24px;
         font-weight: 600;
@@ -86,6 +86,39 @@
         100% { left: -40%; opacity: 0; }
     }
 
+    @keyframes unifiedGlow {
+        0%, 100% { box-shadow: 0 0 12px rgba(254, 187, 10, 0.25); }
+        25% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
+        50% { box-shadow: 0 0 40px rgba(254, 187, 10, 0.7); }
+        75% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
+    }
+
+    .glow-element {
+        animation: unifiedGlow 6s ease-in-out infinite;
+        transition: box-shadow 0.3s ease-out;
+    }
+
+    .call-button {
+        display: block;
+        background: #f2f2f2;
+        color: #120d0d;
+        padding: 18px;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        margin: 10px auto 30px auto;
+        font-size: 20px;
+        width: 80%;
+        max-width: 260px;
+        box-sizing: border-box;
+        touch-action: manipulation;
+    }
+
+    .call-button:hover {
+        animation-play-state: paused;
+        box-shadow: 0 0 50px rgba(254, 187, 10, 0.85) !important;
+    }
+
     .services-text {
         color: #f2f2f2;
         font-size: 15px;
@@ -109,38 +142,10 @@
 
     .services-line3 {
         display: block;
-        margin: 8px 0 0 40px;
+        margin: 8px 0 0 20px;
         white-space: nowrap;
-    }
-
-    .call-button {
-        display: block;
-        background: #f2f2f2;
-        color: #120d0d;
-        padding: 18px;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: 600;
-        margin: 0 auto 20px auto;
-        font-size: 20px;
-        width: 80%;
-        max-width: 260px;
-        box-sizing: border-box;
-        touch-action: manipulation;
-        animation: buttonGlow 6s ease-in-out infinite;
-        transition: box-shadow 0.3s ease-out;
-    }
-
-    @keyframes buttonGlow {
-        0%, 100% { box-shadow: 0 0 12px rgba(254, 187, 10, 0.25); }
-        25% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
-        50% { box-shadow: 0 0 40px rgba(254, 187, 10, 0.7); }
-        75% { box-shadow: 0 0 25px rgba(254, 187, 10, 0.45); }
-    }
-
-    .call-button:hover {
-        animation-play-state: paused;
-        box-shadow: 0 0 50px rgba(254, 187, 10, 0.85) !important;
+        text-align: center;
+        width: 100%;
     }
 
     .social-label {
@@ -164,15 +169,21 @@
     }
 
     .social-icons img {
-        width: 48px;
-        height: 48px;
         border-radius: 8px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        max-width: 48px;
+        max-height: 48px;
+        width: auto;
+        height: auto;
+    }
+
+    .social-icons img.glow-element {
+        animation: unifiedGlow 6s ease-in-out infinite;
+        transition: box-shadow 0.3s ease-out;
     }
 
     .social-icons img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(254, 187, 10, 0.6);
+        animation-play-state: paused;
+        box-shadow: 0 0 50px rgba(254, 187, 10, 0.85) !important;
     }
 
     .counter-container {
@@ -185,30 +196,30 @@
         <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
         <h2 class="title-glow">VOLTAGE MONTAGE</h2>
         
+        <a href="tel:+79185756519" class="call-button glow-element">
+            📱 ПОЗВОНИТЬ 📱
+        </a>
+        
         <div class="services-text">
             <span class="services-line1">электромонтажные работы любой сложности</span>
             <span class="services-line2">• видеонаблюдение • интернет • умный дом •</span>
             <span class="services-line3">безопасно • качественно</span>
         </div>
 
-        <a href="tel:+79185756519" class="call-button">
-            📱 ПОЗВОНИТЬ 📱
-        </a>
-        
         <div class="social-label">мы в соцсетях</div>
         
         <div class="social-icons">
             <a href="https://t.me/+79185756519" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram" class="glow-element">
             </a>
             <a href="https://wa.me/79185756519" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="glow-element">
             </a>
             <a href="https://instagram.com/elektrik_uga/" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" class="glow-element">
             </a>
             <a href="https://max.ru/u/f9LHodD0cOKImc87MNoK51SD6Rqs9gYnwjY3hH_VQAhuzYD4iimbLTRZu1c" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" alt="Max" class="glow-element">
             </a>
         </div>
         
