@@ -38,12 +38,12 @@
         border-radius: 10px;
         object-fit: cover;
         object-position: center;
-        margin: 0 auto 10px auto;  /* ТОЧНО ПОСЕРЕДИНЕ */
+        margin: 0 auto 5px auto;
         display: block;
-        clip-path: inset(7.5% round 10px);  /* ЕЩЁ БОЛЬШЕ КРОПА (85% центра) */
+        clip-path: inset(7.5% round 10px);
     }
 
-    /* Заголовок с бликом туда-обратно */
+    /* Заголовок с БЛИКОМ #febb0a */
     .title-glow {
         position: relative;
         display: inline-block;
@@ -63,9 +63,10 @@
         background: linear-gradient(
             120deg,
             transparent 0%,
-            rgba(242,242,242,0.0) 20%,
-            rgba(242,242,242,0.9) 50%,
-            rgba(242,242,242,0.0) 80%,
+            rgba(254, 187, 10, 0.0) 20%,     /* #febb0a прозрачный */
+            rgba(254, 187, 10, 0.95) 50%,    /* #febb0a яркий пик */
+            rgba(254, 187, 10, 0.7) 65%,     /* #febb0a переход */
+            rgba(254, 187, 10, 0.3) 80%,     /* #febb0a затухание */
             transparent 100%
         );
         transform: skewX(-20deg);
@@ -147,10 +148,10 @@
 
 <body>
     <div class="card">
-        <!-- Логотип ПОСЕРЕДИНЕ с сильным кропом -->
+        <!-- Логотип -->
         <img src="logo.jpg" alt="Voltage Montage" class="logo-img">
 
-        <!-- Название с бликом -->
+        <!-- Название с БЛИКОМ #febb0a ⚡ -->
         <h2 class="title-glow">VOLTAGE MONTAGE</h2>
 
         <!-- Описание -->
