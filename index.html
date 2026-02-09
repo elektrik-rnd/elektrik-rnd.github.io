@@ -96,7 +96,7 @@
             100% { opacity: 0; transform: translateY(-40px) scale(0.5); }
         }
 
-        /* Кнопка только со свечением (без увеличения) */
+        /* Кнопка с ярким свечением (+30% площадь) */
         .call-button {
             display: block;
             background: #f2f2f2;
@@ -115,32 +115,41 @@
             position: relative;
         }
 
-        /* Только циклическое свечение */
+        /* Яркое циклическое свечение (40px в пике) */
         @keyframes buttonGlow {
             0%, 100% {
-                box-shadow: 0 0 10px rgba(242,242,242,0.15);
+                box-shadow: 0 0 12px rgba(242,242,242,0.2);
             }
             25% {
-                box-shadow: 0 0 20px rgba(242,242,242,0.3);
+                box-shadow: 0 0 25px rgba(242,242,242,0.45);
             }
             50% {
-                box-shadow: 0 0 30px rgba(242,242,242,0.55); /* +20% больше */
+                box-shadow: 0 0 40px rgba(242,242,242,0.65); /* +30% ярче и шире */
             }
             75% {
-                box-shadow: 0 0 20px rgba(242,242,242,0.3);
+                box-shadow: 0 0 25px rgba(242,242,242,0.45);
             }
         }
 
-        /* Hover эффект остаётся */
+        /* Hover эффект */
         .call-button:hover {
             animation-play-state: paused;
-            box-shadow: 0 0 35px rgba(242,242,242,0.6) !important;
-            transform: scale(1.02) !important; /* лёгкое увеличение только при hover */
+            box-shadow: 0 0 45px rgba(242,242,242,0.75) !important;
+        }
+
+        /* Соцсети — исправлено для iOS */
+        .social-icons {
+            margin: 20px 0 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .social-icons a {
-            margin: 0 10px;
             display: inline-block;
+            flex: 0 0 auto;
         }
 
         .social-icons img {
@@ -170,7 +179,7 @@
         <p style="margin:8px 0; color:#f2f2f2; font-size:16px;">Электрика • Видеонаблюдение • Интернет</p>
         <p style="margin:8px 0 25px 0; color:#f2f2f2; font-size:16px;">Умный дом • Безопасно • Качественно</p>
 
-        <!-- Кнопка только со свечением -->
+        <!-- Кнопка с ярким свечением -->
         <a href="tel:+79185756519" class="call-button">
             📱 ПОЗВОНИТЬ 📱
         </a>
@@ -180,8 +189,8 @@
             Связаться удобным способом
         </div>
 
-        <!-- Иконки соцсетей -->
-        <div class="social-icons" style="margin:20px 0 30px 0;">
+        <!-- Иконки соцсетей (исправлено для iOS) -->
+        <div class="social-icons">
             <a href="https://t.me/+79185756519" target="_blank" rel="noopener noreferrer">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" width="40" height="40" alt="Telegram">
             </a>
@@ -192,7 +201,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="40" height="40" alt="Instagram">
             </a>
             <a href="https://max.ru/u/f9LHodD0cOKBmmqkeevlRKfWIjRVnGlaGE-NTN6EaLI" target="_blank" rel="noopener noreferrer">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B9%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" width="40" height="40" alt="Max">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_MAX.svg" width="40" height="40" alt="Max">
             </a>
         </div>
 
